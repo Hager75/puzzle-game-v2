@@ -1,0 +1,362 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>MSD Puzzle Game</title>
+    <link rel="stylesheet" href="assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="icon" href="assets/images/favicon.ico" />
+  </head>
+
+  <body id="main-body">
+    <!-- loader  -->
+    <!-- <div id="loader-wrapper">
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div> -->
+
+    <section id="login-page" class="login-section d-none">
+      <div class="login-content">
+        <div class="login-content__left">
+          <img src="assets/images/game final-05.png" alt="preview" />
+        </div>
+        <div class="login-content__right">
+          <div>
+            <div class="login-title">ANSWER THE QUESTIONS</div>
+            <div class="login-title">TO COMPLETE THE PUZZLE</div>
+            <form id="startForm">
+              <button type="submit" class="start-btn">
+                <img src="assets/images/start-btn-v2.svg" alt="start" />
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="footer-left">
+          <div class="footer-img-wrap">
+            <img src="assets/images/logo-3.svg" alt="logo" />
+          </div>
+          <div class="footer-img-wrap">
+            <img src="assets/images/new-logo.png" alt="logo" />
+          </div>
+        </div>
+        <div class="footer-right">
+          <div class="footer-img-wrap">
+            <img src="assets/images/msd-logo.svg" alt="MSD-logo" />
+          </div>
+        </div>
+      </footer>
+    </section>
+
+    <!--  game-page -->
+    <div id="game-page" class="game-page d-flex">
+      <!-- SIDEBAR -->
+      <aside id="sidebar" class="sidebar">
+        <div class="header">
+          <div class="w-100 text-center">
+            <img
+              src="assets/images/side-bar-header.svg"
+              alt="ANSWER THE 4 QUESTIONS TO COMPLETE THE PUZZLE"
+              class="img-fluid sidebar__headerImg"
+            />
+          </div>
+          <div class="w-100 text-center">
+            <img
+              src="assets/images/Asset 6.svg"
+              alt="You Have 2 Minutes to Complete the Puzzle"
+              class="img-fluid sidebar__subTitleImg"
+            />
+          </div>
+
+          <!-- <ol class="subtitle-wrap">
+            <li>You Have 2 Minutes to</li>
+            <li>Complete the Puzzle</li>
+          </ol> -->
+        </div>
+
+        <div class="questions__count-container position-relative">
+          <img
+            src="assets/images/question-count.svg"
+            alt=""
+            srcset=""
+            class="img-fluid questions__count--mainImg"
+          />
+          <img
+            src="assets/images/circle.svg"
+            alt=""
+            class="img-fluid question__count--completed q1-completed"
+          />
+          <img
+            src="assets/images/circle.svg"
+            alt=""
+            class="img-fluid question__count--completed q2-completed"
+          />
+          <img
+            src="assets/images/circle.svg"
+            alt=""
+            class="img-fluid question__count--completed q3-completed"
+          />
+          <img
+            src="assets/images/circle.svg"
+            alt=""
+            class="img-fluid question__count--completed q4-completed"
+          />
+        </div>
+        <div class="timer">
+          <div class="timer__title">Time</div>
+          <div id="realtime" class="timer__mins">02:00</div>
+          <div class="preview-wrap w-100">
+            <img
+              src="assets/images/preview.svg"
+              alt=""
+              srcset=""
+              class="w-100"
+            />
+          </div>
+        </div>
+
+        <div class="logo-wrap">
+          <img src="assets/images/msd-logo.svg" alt="msd-logo" srcset="" />
+        </div>
+      </aside>
+
+      <div id="main-img" class="game-container">
+        <div class="nav">
+          <div class="prev">
+            <img src="assets/images/prev-btn.svg" alt="" srcset="" />
+          </div>
+          <div class="next">
+            <img src="assets/images/next-btn.svg" alt="" srcset="" />
+          </div>
+          <div class="home">
+            <img src="assets/images/home-btn.svg" alt="" srcset="" />
+          </div>
+        </div>
+        <div class="puzzle-container">
+          <img
+            src="assets/images/progress-1.png"
+            alt=""
+            srcset=""
+            class="img-fluid"
+          />
+        </div>
+        <div class="question-container"></div>
+        <!-- <img src="assets/images/progress-2.png" alt="" srcset="" class="img-fluid">
+        <img src="assets/images/progress-3.png" alt="" srcset="" class="img-fluid">
+        <img src="assets/images/progress-final.png" alt="" srcset="" class="img-fluid"> -->
+      </div>
+    </div>
+
+    <section class="info-page">
+      <div class="info-container">
+        <div class="nav">
+          <div class="next">
+            <img src="assets/images/next-btn.svg" alt="" srcset="" />
+          </div>
+        </div>
+        <div class="info-label"></div>
+
+        <div class="grid">
+          <!-- ROW 1: LOGOS -->
+          <div class="logo-wrap">
+            <img src="assets/images/Asset 15.png" alt="" />
+          </div>
+          <div class="logo-wrap">
+            <img src="assets/images/Asset 18.svg" alt="" />
+          </div>
+          <div class="logo-wrap">
+            <img src="assets/images/Asset 11.png" alt="" />
+          </div>
+
+          <!-- ROW 2: IMAGES -->
+          <div class="img-wrap">
+            <img src="assets/images/img-3-07.png" alt="" />
+          </div>
+          <div class="img-wrap">
+            <img src="assets/images/img-2-06.png" alt="" />
+          </div>
+          <div class="img-wrap">
+            <img src="assets/images/img-1-05.png" alt="" />
+          </div>
+
+          <!-- ROW 3: TEXTS -->
+          <div class="text-wrap">
+            <img src="assets/images/Asset 14.svg" alt="" />
+          </div>
+          <div class="text-wrap">
+            <img src="assets/images/Asset 17.svg" alt="" />
+          </div>
+          <div class="text-wrap">
+            <img src="assets/images/Asset 16.svg" alt="" />
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="ref">
+          <h6 class="ref-title">References</h6>
+          <ol class="ref-list">
+            <li>Vaneuvance approved SPC.</li>
+            <li>Enflonsia Local SPC.</li>
+            <li>
+              Cheng L, Wang Y, Du J. Human Papillomavirus Vaccines: An Updated
+              Review. Vaccines (Basel). 2020;8(3):391.
+            </li>
+            <li>
+              ABCs Bact Facts Interactive Data Dashboard. SPN serotypes
+              1998-2023. Centers for Disease Control and Prevention. August 21,
+              2025. Accessed April 2026.<br />
+              <a
+                href="https://www.cdc.gov/abcs/bact-facts/data-dashboard.html"
+                target="_blank"
+              >
+                https://www.cdc.gov/abcs/bact-facts/data-dashboard.html
+              </a>
+            </li>
+            <li>
+              1998-2025 serotype data for invasive pneumococcal disease cases by
+              age group from Active Bacterial Core Surveillance. Centers for
+              Disease Control and Prevention. Updated March 14, 2025. Accessed
+              April 2026.<br />
+              <a
+                href="https://data.cdc.gov/Public-Health-Surveillance/1998-2023-Serotype-Data-for-Invasive-Pneumococcal-/qvzb-qs6p/about_data"
+                target="_blank"
+              >
+                https://data.cdc.gov/Public-Health-Surveillance/1998-2023-Serotype-Data-for-Invasive-Pneumococcal-/qvzb-qs6p/about_data
+              </a>
+            </li>
+            <li>CAPVAXIVE™. Local Summary of Product Characteristics.</li>
+          </ol>
+        </div>
+        <div class="footer-right">
+          <div class="footer-img-wrap">
+            <img src="assets/images/msd-logo.svg" alt="MSD-logo" />
+          </div>
+        </div>
+      </footer>
+    </section>
+
+    <section class="qr-container">
+      <div class="nav">
+        <div class="prev">
+          <img src="assets/images/prev-btn.svg" alt="" srcset="" />
+        </div>
+        <div class="next">
+          <img src="assets/images/next-btn.svg" alt="" srcset="" />
+        </div>
+      </div>
+      <div class="qr-bg">
+        <div class="qr-list">
+          <div class="qr-img-wrap">
+            <img src="assets/images/Asset 2-last-2-01.svg" alt="" srcset="" />
+          </div>
+          <div class="qr-img-wrap">
+            <img src="assets/images/Asset 3-last-2-01.svg" alt="" srcset="" />
+          </div>
+          <div class="qr-img-wrap">
+            <img src="assets/images/Asset 1-last-2-01.svg" alt="" srcset="" />
+          </div>
+          <div class="qr-img-wrap">
+            <img src="assets/images/Asset 5-last--2-01.svg" alt="" srcset="" />
+          </div>
+        </div>
+        <footer class="legal-footer">
+          <div class="legal-container">
+            <p class="legal-text">
+              Copyright @ 2026 Merck & Co., Inc., Rahway, NU, USA and its
+              affiliates. All rights reserved.
+            </p>
+
+            <p class="legal-meta">AE-PVC-00086 Expiry: 15-4-2028</p>
+
+            <p class="legal-text">
+              To report an adverse event, product quality complaint, or other
+              reportable information, or if you have a medical inquiry, please
+              contact:
+              <span>Tel: <a href="tel:+42691009714">+42 69100 9714</a></span>
+              <span>Fax: <a href="fax:+42692049714">+42 69204 9714</a></span>
+              <span
+                >Email:
+                <a href="mailto:DPOC.GULF@MSD.COM">DPOC.GULF@MSD.COM</a></span
+              >
+            </p>
+          </div>
+          <div class="footer-img-wrap">
+            <img src="assets/images/msd-logo.svg" alt="MSD-logo" />
+          </div>
+        </footer>
+      </div>
+    </section>
+
+    <section id="score-page" class="score-page">
+      <!-- <div class="score-container"> -->
+      <div class="nav score-nav">
+        <div class="prev">
+          <img src="assets/images/prev-btn.svg" alt="" srcset="" />
+        </div>
+        <div class="home">
+          <img src="assets/images/home-btn.svg" alt="" srcset="" />
+        </div>
+      </div>
+      <div class="content">
+        <div class="left">
+          <img src="assets/images/game final-05.png" alt="preview" />
+        </div>
+        <div class="right">
+          <div>
+            <div class="score__title">USERNAME</div>
+            <div class="user-name"></div>
+            <!-- hide score section -->
+            <div class="userscore-container">
+              <div class="userscore--percentage">75%</div>
+              <div class="userscore">
+                <div class="userscore--txt">score</div>
+                <div class="userscore--number">0000</div>
+              </div>
+            </div>
+            <button type="button" class="restart-btn">
+              <img src="assets/images/restart-btn.svg" alt="restart" />
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- </div> -->
+      <footer class="footer">
+        <div class="footer-left">
+          <div class="footer-img-wrap">
+            <img src="assets/images/logo-3.svg" alt="logo" />
+          </div>
+          <div class="footer-img-wrap">
+            <img src="assets/images/logo-1.svg" alt="logo" />
+          </div>
+          <div class="footer-img-wrap">
+            <img src="assets/images/new-logo.png" alt="logo" />
+          </div>
+          <div class="footer-img-wrap">
+            <img src="assets/images/missing-logo.svg" alt="logo" />
+          </div>
+        </div>
+        <div class="footer-right">
+          <div class="footer-img-wrap">
+            <img src="assets/images/msd-logo.svg" alt="MSD-logo" />
+          </div>
+        </div>
+      </footer>
+    </section>
+    <!-- rotate msg  -->
+    <div class="rotateMessage">
+      <div class="rotateMessage-container">
+        <div class="rotateMessage-content">
+          <div class="rotateMessage-text">Please rotate to landscape mood</div>
+        </div>
+      </div>
+    </div>
+    <!-- <script src="assets/js/variables.js"></script>
+    <script src="assets/js/game.js"></script>
+    <script src="assets/js/main.js"></script> -->
+  </body>
+</html>
