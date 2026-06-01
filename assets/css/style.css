@@ -874,6 +874,7 @@ main {
   color: #1a1a1a;
   padding: 0.1rem 1rem;
   text-align: start;
+  -webkit-text-size-adjust: 100%;
 }
 
 .ref-title {
@@ -886,8 +887,8 @@ main {
 }
 
 .ref-list li {
-  font-family: var(--font-normal) !important;
-  font-size: 0.5rem !important;
+  font-family: var(--font-normal) ;
+  font-size: 0.5rem ;
 }
 
 .ref a {
