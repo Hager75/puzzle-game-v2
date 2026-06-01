@@ -19,7 +19,7 @@
       <div class="loader-section section-right"></div>
     </div> -->
 
-    <section id="login-page" class="login-section d-none">
+    <section id="login-page" class="login-section">
       <div class="login-content">
         <div class="login-content__left">
           <img src="assets/images/game final-05.png" alt="preview" />
@@ -54,7 +54,7 @@
     </section>
 
     <!--  game-page -->
-    <div id="game-page" class="game-page d-flex">
+    <div id="game-page" class="game-page">
       <!-- SIDEBAR -->
       <aside id="sidebar" class="sidebar">
         <div class="header">
@@ -72,11 +72,6 @@
               class="img-fluid sidebar__subTitleImg"
             />
           </div>
-
-          <!-- <ol class="subtitle-wrap">
-            <li>You Have 2 Minutes to</li>
-            <li>Complete the Puzzle</li>
-          </ol> -->
         </div>
 
         <div class="questions__count-container position-relative">
@@ -127,13 +122,13 @@
 
       <div id="main-img" class="game-container">
         <div class="nav">
-          <div class="prev">
+          <div class="prev disabled">
             <img src="assets/images/prev-btn.svg" alt="" srcset="" />
           </div>
           <div class="next">
             <img src="assets/images/next-btn.svg" alt="" srcset="" />
           </div>
-          <div class="home">
+          <div class="home disabled">
             <img src="assets/images/home-btn.svg" alt="" srcset="" />
           </div>
         </div>
@@ -142,94 +137,280 @@
             src="assets/images/progress-1.png"
             alt=""
             srcset=""
-            class="img-fluid"
+            class="img-fluid progress-1"
+          />
+          <img
+            src="assets/images/progress-2.png"
+            alt=""
+            srcset=""
+            class="img-fluid progress-2"
+          />
+          <img
+            src="assets/images/progress-3.png"
+            alt=""
+            srcset=""
+            class="img-fluid progress-3"
+          />
+          <img
+            src="assets/images/progress-final.png"
+            alt=""
+            srcset=""
+            class="img-fluid progress-4"
           />
         </div>
-        <div class="question-container"></div>
-        <!-- <img src="assets/images/progress-2.png" alt="" srcset="" class="img-fluid">
-        <img src="assets/images/progress-3.png" alt="" srcset="" class="img-fluid">
-        <img src="assets/images/progress-final.png" alt="" srcset="" class="img-fluid"> -->
+        <div class="question-container q1-container">
+          <div class="question-header text-start">
+            <img
+              src="assets/images/Asset 15.svg"
+              alt=""
+              srcset=""
+              class="img-fluid"
+            />
+          </div>
+          <div class="question-content text-start">
+            <img
+              src="assets/images/Asset 50.svg"
+              alt=""
+              srcset=""
+              class="img-fluid"
+            />
+          </div>
+          <div>
+            <div class="question-choices">
+              <button class="q1-buttons">
+                <div class="q1__answer--icon">
+                  <img
+                    src="assets/images/Asset 40.svg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+                TRUE
+              </button>
+              <button class="q1-buttons">
+                <div class="q1__answer--icon">
+                  <img
+                    src="assets/images/Asset 39.svg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+                FALSE
+              </button>
+            </div>
+            <div class="error">
+              Please answer this question then click next.
+            </div>
+          </div>
+        </div>
+        <div class="question-container q2-container">
+          <div class="question2-header text-start">
+            <img
+              src="assets/images/Asset 47.svg"
+              alt=""
+              srcset=""
+              class="img-fluid"
+            />
+          </div>
+          <div class="question2-content text-start">
+            <img
+              src="assets/images/choose-apply.svg"
+              alt=""
+              srcset=""
+              class="img-fluid"
+            />
+          </div>
+          <div>
+            <div class="question2-choices">
+              <button class="q2-buttons">Cervical</button>
+              <button class="q2-buttons">Vulvar</button>
+              <button class="q2-buttons">Vaginal</button>
+              <button class="q2-buttons">Anal</button>
+              <button class="q2-buttons">Oropharyngeal</button>
+              <button class="q2-buttons">bladder</button>
+            </div>
+            <div class="error">
+              Please answer this question then click next.
+            </div>
+          </div>
+        </div>
+        <div class="question-container q3-container">
+          <div class="question3-header text-start">
+            <img
+              src="assets/images/Asset 26.svg"
+              alt=""
+              srcset=""
+              class="img-fluid"
+            />
+          </div>
+          <div class="question3-content text-start">
+            <img
+              src="assets/images/Asset 25.svg"
+              alt=""
+              srcset=""
+              class="img-fluid"
+            />
+          </div>
+          <div>
+            <div class="question3-choices">
+              <button class="q3-buttons">
+                <div class="q3__answer--icon">
+                  <img
+                    src="assets/images/a-letter.svg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+                40%
+              </button>
+              <button class="q3-buttons">
+                <div class="q3__answer--icon">
+                  <img
+                    src="assets/images/b-letter.svg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+                54%
+              </button>
+              <button class="q3-buttons">
+                <div class="q3__answer--icon">
+                  <img
+                    src="assets/images/c-letter.svg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+                82%
+              </button>
+              <button class="q3-buttons">
+                <div class="q3__answer--icon">
+                  <img
+                    src="assets/images/d-letter.svg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+                95%
+              </button>
+            </div>
+            <div class="error">
+              Please answer this question then click next.
+            </div>
+          </div>
+        </div>
+        <div class="question-container q4-container">
+          <div class="question4-header text-start">
+            <img
+              src="assets/images/Asset 32.svg"
+              alt=""
+              srcset=""
+              class="img-fluid"
+            />
+          </div>
+          <div class="question4-content text-start">
+            <img
+              src="assets/images/Asset 31.svg"
+              alt=""
+              srcset=""
+              class="img-fluid"
+            />
+          </div>
+          <div>
+            <div class="question4-choices">
+              <button class="q4-buttons">
+                <div class="q4__answer--icon">
+                  <img
+                    src="assets/images/a-letter.svg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+                2 Doses
+              </button>
+              <button class="q4-buttons">
+                <div class="q4__answer--icon">
+                  <img
+                    src="assets/images/b-letter.svg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+                3 Doses
+              </button>
+              <button class="q4-buttons">
+                <div class="q4__answer--icon">
+                  <img
+                    src="assets/images/c-letter.svg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+                Single Dose
+              </button>
+              <button class="q4-buttons">
+                <div class="q4__answer--icon">
+                  <img
+                    src="assets/images/d-letter.svg"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+                Annual Dose
+              </button>
+            </div>
+            <div class="error">
+              Please answer this question then click next.
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <section class="info-page">
+    <section class="info-page info1-page">
       <div class="info-container">
         <div class="nav">
+          <div class="prev">
+            <img src="assets/images/prev-btn.svg" alt="" srcset="" />
+          </div>
           <div class="next">
             <img src="assets/images/next-btn.svg" alt="" srcset="" />
           </div>
+          <div class="home disabled">
+            <img src="assets/images/home-btn.svg" alt="" srcset="" />
+          </div>
         </div>
-        <div class="info-label"></div>
-
-        <div class="grid">
-          <!-- ROW 1: LOGOS -->
-          <div class="logo-wrap">
-            <img src="assets/images/Asset 15.png" alt="" />
+        <div class="info-logo">
+          <img src="assets/images/Asset 23.svg" alt="" class="img-fluid" />
+        </div>
+        <div class="info-content">
+          <div class="info-img-container">
+            <img src="assets/images/img-1.png" alt="" class="img-fluid" />
           </div>
-          <div class="logo-wrap">
-            <img src="assets/images/Asset 18.svg" alt="" />
-          </div>
-          <div class="logo-wrap">
-            <img src="assets/images/Asset 11.png" alt="" />
-          </div>
-
-          <!-- ROW 2: IMAGES -->
-          <div class="img-wrap">
-            <img src="assets/images/img-3-07.png" alt="" />
-          </div>
-          <div class="img-wrap">
-            <img src="assets/images/img-2-06.png" alt="" />
-          </div>
-          <div class="img-wrap">
-            <img src="assets/images/img-1-05.png" alt="" />
-          </div>
-
-          <!-- ROW 3: TEXTS -->
-          <div class="text-wrap">
-            <img src="assets/images/Asset 14.svg" alt="" />
-          </div>
-          <div class="text-wrap">
-            <img src="assets/images/Asset 17.svg" alt="" />
-          </div>
-          <div class="text-wrap">
-            <img src="assets/images/Asset 16.svg" alt="" />
+          <div class="info-txt-container">
+            <img src="assets/images/Asset 22.svg" alt="" class="img-fluid" />
           </div>
         </div>
       </div>
       <footer class="footer">
         <div class="ref">
-          <h6 class="ref-title">References</h6>
+          <h6 class="ref-title">References:</h6>
           <ol class="ref-list">
-            <li>Vaneuvance approved SPC.</li>
-            <li>Enflonsia Local SPC.</li>
             <li>
-              Cheng L, Wang Y, Du J. Human Papillomavirus Vaccines: An Updated
-              Review. Vaccines (Basel). 2020;8(3):391.
+              Markowitz LE, Schiller JT. Human Papillomavirus Vaccines. J Infect
+              Dis. 2021 Sep 30:224(12 Suppl 2)S367-S378.
             </li>
             <li>
-              ABCs Bact Facts Interactive Data Dashboard. SPN serotypes
-              1998-2023. Centers for Disease Control and Prevention. August 21,
-              2025. Accessed April 2026.<br />
+              European Medicines Agency. Human papillomavirus (HPV). Amsterdam:
+              European Medicines Agency: [cited 2026 Mar 26]. <br />Available
+              from
               <a
-                href="https://www.cdc.gov/abcs/bact-facts/data-dashboard.html"
+                href="https://data.cdc.gov/Public-Health-Surveillance/1998-2023-Serotype-Data-for-Invasive-Pneumococcal-/qvzb-qs6p/about_data."
                 target="_blank"
               >
-                https://www.cdc.gov/abcs/bact-facts/data-dashboard.html
+                https://data.cdc.gov/Public-Health-Surveillance/1998-2023-Serotype-Data-for-Invasive-Pneumococcal-/qvzb-qs6p/about_data..
               </a>
             </li>
-            <li>
-              1998-2025 serotype data for invasive pneumococcal disease cases by
-              age group from Active Bacterial Core Surveillance. Centers for
-              Disease Control and Prevention. Updated March 14, 2025. Accessed
-              April 2026.<br />
-              <a
-                href="https://data.cdc.gov/Public-Health-Surveillance/1998-2023-Serotype-Data-for-Invasive-Pneumococcal-/qvzb-qs6p/about_data"
-                target="_blank"
-              >
-                https://data.cdc.gov/Public-Health-Surveillance/1998-2023-Serotype-Data-for-Invasive-Pneumococcal-/qvzb-qs6p/about_data
-              </a>
-            </li>
-            <li>CAPVAXIVE™. Local Summary of Product Characteristics.</li>
           </ol>
         </div>
         <div class="footer-right">
@@ -240,104 +421,113 @@
       </footer>
     </section>
 
-    <section class="qr-container">
-      <div class="nav">
-        <div class="prev">
-          <img src="assets/images/prev-btn.svg" alt="" srcset="" />
+    <section class="info-page info2-page">
+      <div class="info-container">
+        <div class="nav">
+          <div class="prev">
+            <img src="assets/images/prev-btn.svg" alt="" srcset="" />
+          </div>
+          <div class="next">
+            <img src="assets/images/next-btn.svg" alt="" srcset="" />
+          </div>
+          <div class="home disabled">
+            <img src="assets/images/home-btn.svg" alt="" srcset="" />
+          </div>
         </div>
-        <div class="next">
-          <img src="assets/images/next-btn.svg" alt="" srcset="" />
+        <div class="info-logo d-none">
+          <img src="assets/images/Asset 23.svg" alt="" class="img-fluid" />
+        </div>
+        <div class="info2-logo">
+          <img src="assets/images/Asset 37.png" alt="" class="img-fluid" />
+        </div>
+
+        <div class="info-content d-none">
+          <div class="info-img-container">
+            <img src="assets/images/img-1.png" alt="" class="img-fluid" />
+          </div>
+          <div class="info-txt-container">
+            <img src="assets/images/Asset 22.svg" alt="" class="img-fluid" />
+          </div>
+        </div>
+        <div class="info2-content">
+          <div class="info2-img-container">
+            <img src="assets/images/info-2.png" alt="" class="img-fluid" />
+          </div>
         </div>
       </div>
-      <div class="qr-bg">
-        <div class="qr-list">
-          <div class="qr-img-wrap">
-            <img src="assets/images/Asset 2-last-2-01.svg" alt="" srcset="" />
-          </div>
-          <div class="qr-img-wrap">
-            <img src="assets/images/Asset 3-last-2-01.svg" alt="" srcset="" />
-          </div>
-          <div class="qr-img-wrap">
-            <img src="assets/images/Asset 1-last-2-01.svg" alt="" srcset="" />
-          </div>
-          <div class="qr-img-wrap">
-            <img src="assets/images/Asset 5-last--2-01.svg" alt="" srcset="" />
-          </div>
-        </div>
-        <footer class="legal-footer">
-          <div class="legal-container">
-            <p class="legal-text">
-              Copyright @ 2026 Merck & Co., Inc., Rahway, NU, USA and its
-              affiliates. All rights reserved.
-            </p>
-
-            <p class="legal-meta">AE-PVC-00086 Expiry: 15-4-2028</p>
-
-            <p class="legal-text">
-              To report an adverse event, product quality complaint, or other
-              reportable information, or if you have a medical inquiry, please
-              contact:
-              <span>Tel: <a href="tel:+42691009714">+42 69100 9714</a></span>
-              <span>Fax: <a href="fax:+42692049714">+42 69204 9714</a></span>
-              <span
-                >Email:
-                <a href="mailto:DPOC.GULF@MSD.COM">DPOC.GULF@MSD.COM</a></span
+      <footer class="footer">
+        <div class="ref">
+          <h6 class="ref-title">References:</h6>
+          <ol class="ref-list">
+            <li>
+              ABCs bact facts interactive data dashboard. SPN serotypes
+              1998-2023. Centers for Disease Control and Prevention. August 21,
+              2025. Accessed February 2026.
+              <a
+                href="https://www.cdc.gov/abcs/bact-facts/data-dashboard.html"
+                target="_blank"
               >
-            </p>
-          </div>
+                https://www.cdc.gov/abcs/bact-facts/data-dashboard.html.
+              </a>
+            </li>
+            <li>
+              1998-2025 serotype data tor invasive pneumococcal disease cases by
+              age group trom active acterial core surveillance. Centers for
+              Disease Control and Prevention. Updated March 14, 2025 <br />
+              Accessed February 2026.
+              <a
+                href="https://data.cdc.gov/Public-Health-Surveillance/1998-2023-Serotype-Data-for-Invasive-Pneumococcal-/qvzb-qs6p/about_data"
+                target="_blank"
+              >
+                https://data.cdc.gov/Public-Health-Surveillance/1998-2023-Serotype-Data-for-Invasive-Pneumococcal-/qvzb-qs6p/about_data.
+              </a>
+            </li>
+            <li>CAPVAXIVE™. Local Summary of Product Characteristics</li>
+          </ol>
+        </div>
+        <div class="footer-right">
           <div class="footer-img-wrap">
             <img src="assets/images/msd-logo.svg" alt="MSD-logo" />
           </div>
-        </footer>
-      </div>
+        </div>
+      </footer>
     </section>
 
-    <section id="score-page" class="score-page">
-      <!-- <div class="score-container"> -->
-      <div class="nav score-nav">
+    <section id="final-page" class="final-page">
+      <div class="nav final-page__nav">
         <div class="prev">
           <img src="assets/images/prev-btn.svg" alt="" srcset="" />
         </div>
+        <div class="next disabled">
+          <img src="assets/images/next-btn.svg" alt="" srcset="" />
+        </div>
+
         <div class="home">
           <img src="assets/images/home-btn.svg" alt="" srcset="" />
         </div>
       </div>
-      <div class="content">
-        <div class="left">
+      <div class="login-content">
+        <div class="login-content__left">
           <img src="assets/images/game final-05.png" alt="preview" />
         </div>
-        <div class="right">
+        <div class="login-content__right">
           <div>
-            <div class="score__title">USERNAME</div>
-            <div class="user-name"></div>
-            <!-- hide score section -->
-            <div class="userscore-container">
-              <div class="userscore--percentage">75%</div>
-              <div class="userscore">
-                <div class="userscore--txt">score</div>
-                <div class="userscore--number">0000</div>
-              </div>
-            </div>
-            <button type="button" class="restart-btn">
-              <img src="assets/images/restart-btn.svg" alt="restart" />
-            </button>
+            <form id="restartForm">
+              <button type="submit" class="restart-btn">
+                <img src="assets/images/restart-btn.svg" alt="restart" />
+              </button>
+            </form>
           </div>
         </div>
       </div>
-      <!-- </div> -->
+
       <footer class="footer">
         <div class="footer-left">
           <div class="footer-img-wrap">
             <img src="assets/images/logo-3.svg" alt="logo" />
           </div>
           <div class="footer-img-wrap">
-            <img src="assets/images/logo-1.svg" alt="logo" />
-          </div>
-          <div class="footer-img-wrap">
             <img src="assets/images/new-logo.png" alt="logo" />
-          </div>
-          <div class="footer-img-wrap">
-            <img src="assets/images/missing-logo.svg" alt="logo" />
           </div>
         </div>
         <div class="footer-right">
@@ -355,8 +545,8 @@
         </div>
       </div>
     </div>
-    <!-- <script src="assets/js/variables.js"></script>
-    <script src="assets/js/game.js"></script>
-    <script src="assets/js/main.js"></script> -->
+    <script src="assets/js/variables.js"></script>
+    <script src="assets/js/functions.js"></script>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>

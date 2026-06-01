@@ -1,4 +1,22 @@
 @font-face {
+    font-family: 'Trade Gothic LT Std Bold';
+    src: url('TradeGothicLTStd-Bold.woff2') format('woff2'),
+        url('TradeGothicLTStd-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Trade Gothic LT Std';
+    src: url('TradeGothicLTStd.woff2') format('woff2'),
+        url('TradeGothicLTStd.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
     font-family: 'AktivGrotesk Black';
     src: url('AktivGrotesk-Black.woff2') format('woff2'),
         url('AktivGrotesk-Black.woff') format('woff');
@@ -15,6 +33,7 @@
     font-style: italic;
     font-display: swap;
 }
+
 
 @font-face {
     font-family: 'AktivGrotesk Bold';
