@@ -10,9 +10,16 @@ const validateQuestion = (questionContainer, questionKey) => {
 
   questionContainer.querySelector('.error').style.display = 'none';
 
-  answers[questionKey] = [...activeButtons].map(btn =>
-    btn.textContent.trim()
-  );
+  if (questionKey === '2') {
+    // Multiple choice
+    answers[questionKey] = [...activeButtons].map(btn =>
+      btn.textContent.trim()
+    );
+  } else {
+    // Single choice
+    answers[questionKey] = activeButtons[0].textContent.trim();
+  }
+
 
   return true;
 };
@@ -62,7 +69,7 @@ fourthQuestionAnswersBtns.forEach((btn) => {
 
 nextBtn.forEach((btn) => {
   btn.addEventListener('click', () => {
-    if (!(currentPage > 1 && currentPage < 12)) return;
+    if (!(currentPage > 1 && currentPage < 13)) return;
     switch (currentPage) {
       case 2:
         const isValidQ1 = validateQuestion(
@@ -96,21 +103,16 @@ nextBtn.forEach((btn) => {
       case 5:
         showElement(firstInfoPage);
         hideElement(gamePage);
-        timerController.pause();
-        document
-          .querySelectorAll('.q1-buttons, .q2-buttons')
-          .forEach(el => {
-            el.style.pointerEvents = 'none';
-          });
+        // timerController.pause();
         break;
 
 
       case 6:
         showElement(gamePage);
         hideElement(firstInfoPage);
-        if (!Object.hasOwn(answers, 4)) {
-          timerController.resume();
-        }
+        // if (!Object.hasOwn(answers, 4)) {
+        //   timerController.resume();
+        // }
         hideElement(puzzleSection);
         thirdQuestionIndicator.style.display = 'inline-block';
         showElement(thirdQuestionContainer);
@@ -151,9 +153,10 @@ nextBtn.forEach((btn) => {
       case 10:
         showElement(secondInfoPage);
         hideElement(gamePage);
-        timerController.pause();
+        // timerController.pause();
+        displayCorrectQuestionCount();
         document
-          .querySelectorAll('.q3-buttons, .q4-buttons')
+          .querySelectorAll('.q1-buttons, .q2-buttons, .q3-buttons, .q4-buttons')
           .forEach(el => {
             el.style.pointerEvents = 'none';
           });
@@ -161,9 +164,15 @@ nextBtn.forEach((btn) => {
         break;
 
       case 11:
-        showElement(finalPage);
+        showElement(qrPage);
         hideElement(secondInfoPage);
         break;
+
+      case 12:
+        showElement(finalPage);
+        hideElement(qrPage);
+        break;
+
 
       default:
         return;
@@ -175,7 +184,7 @@ nextBtn.forEach((btn) => {
 
 prevBtn.forEach((btn) => {
   btn.addEventListener('click', () => {
-    if (!(currentPage > 2 && currentPage <= 12)) return;
+    if (!(currentPage > 2 && currentPage <= 13)) return;
 
     switch (currentPage) {
       // Returning from page 3 -> page 2
@@ -204,9 +213,9 @@ prevBtn.forEach((btn) => {
       case 6:
         hideElement(firstInfoPage);
         showElement(gamePage);
-        if (!Object.hasOwn(answers, 4)) {
-          timerController.resume();          
-        }
+        // if (!Object.hasOwn(answers, 4)) {
+        //   timerController.resume();          
+        // }
 
         showElement(puzzleSection);
         break;
@@ -217,7 +226,7 @@ prevBtn.forEach((btn) => {
         thirdQuestionIndicator.style.display = 'none';
         showElement(gamePage);
         showElement(firstInfoPage);
-        timerController.pause();
+        // timerController.pause();
         break;
 
       // Returning from page 8 -> page 7
@@ -253,8 +262,14 @@ prevBtn.forEach((btn) => {
 
       // Returning from page 12 -> page 11
       case 12:
-        hideElement(finalPage);
+        hideElement(qrPage);
         showElement(secondInfoPage);
+        break;
+
+      // Returning from page 13 -> page 12
+      case 13:
+        hideElement(finalPage);
+        showElement(qrPage);
         break;
 
       default:
@@ -280,10 +295,6 @@ form.addEventListener("submit", function (e) {
   loginPage.classList.add("fade-out");
 
   setTimeout(() => {
-    loginPage.style.display = "none";
-    gamePage.style.display = "flex";
-    gamePage.classList.add("fade-in");
-    currentPage++;
     startGame();
   }, 400);
 
@@ -293,14 +304,14 @@ form.addEventListener("submit", function (e) {
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    // await preloadAssets();
+    await preloadAssets();
 
-    // setTimeout(function () {
-    //   bodyElement.classList.add("loaded");
-    // }, 1000);
+    setTimeout(function () {
+      bodyElement.classList.add("loaded");
+    }, 1000);
   } catch (e) {
     console.error("Preload failed", e);
-    // loader.classList.add("loaded"); // fail-safe
+    loader.classList.add("loaded"); // fail-safe
   }
 });
 

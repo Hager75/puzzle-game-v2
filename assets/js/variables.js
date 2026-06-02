@@ -2,8 +2,9 @@ const bodyElement = document.getElementById("main-body");
 const form = document.getElementById("startForm");
 const loginPage = document.getElementById("login-page");
 const gamePage = document.getElementById("game-page");
+const qrPage = document.getElementById("qr-page");
 
-const timer = document.getElementById("realtime");
+// const timer = document.getElementById("realtime");
 const firstQuestionAnswersBtns = document.querySelectorAll('.q1-buttons');
 const multipleChoiceButtons = document.querySelectorAll('.q2-buttons');
 const thirdQuestionAnswersBtns = document.querySelectorAll('.q3-buttons');
@@ -39,56 +40,65 @@ const nextBtn = document.querySelectorAll(".next");
 const prevBtn = document.querySelectorAll(".prev");
 const homeBtn = document.querySelector(".final-page .home");
 const restartBtn = document.querySelector(".restart-btn");
+const resultElement = document.querySelector(".result");
 const mins = 2;
 const resultText = {
   win: "You Win! 🎉",
   lose: "You Lose! ❌"
 }
 const answers = {};
+const correctAnswers = {
+  1: 'true',
+  2:  ['Cervical' , 'Vulvar', 'Vaginal', 'Anal', 'Oropharyngeal'],
+  3: '82%',
+  4: 'single dose'
+}
 let currentPage = 1;
-let timerController = null;
+let timerController = null; // not used, use it if there is a timer
 
-
-// const ASSETS = [
-//   // GAME
-//   "assets/images/main-with.png",
-
-//   // LOGIN
-//   "assets/images/game final-05.png",
-//   "assets/images/checked.svg",
-//   "assets/images/start-btn.svg",
-
-//   // FOOTER
-//   "assets/images/logo-3.svg",
-//   "assets/images/logo-1.svg",
-//   "assets/images/new-logo.png",
-//   "assets/images/missing-logo.svg",
-//   "assets/images/msd-logo.svg",
-
-//   // INFO PAGE
-//   "assets/images/Asset 15.png",
-//   "assets/images/Asset 18.svg",
-//   "assets/images/Asset 11.png",
-//   "assets/images/img-3-07.png",
-//   "assets/images/img-2-06.png",
-//   "assets/images/img-1-05.png",
-//   "assets/images/Asset 14.svg",
-//   "assets/images/Asset 17.svg",
-//   "assets/images/Asset 16.svg",
-
-//   // QR
-//   "assets/images/Asset 2-last-2-01.svg",
-//   "assets/images/Asset 3-last-2-01.svg",
-//   "assets/images/Asset 1-last-2-01.svg",
-//   "assets/images/Asset 5-last--2-01.svg",
-
-//   // NAV
-//   "assets/images/next-btn.svg",
-//   "assets/images/prev-btn.svg",
-//   "assets/images/home-btn.svg",
-//   "assets/images/restart-btn.svg",
-//   "assets/images/preview.svg"
-// ];
+const imageUrls = [
+  "assets/images/game final-05.png",
+  "assets/images/start-btn-v2.svg",
+  "assets/images/logo-3.svg",
+  "assets/images/new-logo.png",
+  "assets/images/msd-logo.svg",
+  "assets/images/side-bar-header.svg",
+  "assets/images/Asset 6.svg",
+  "assets/images/question-count.svg",
+  "assets/images/circle.svg",
+  "assets/images/preview.svg",
+  "assets/images/progress-1.png",
+  "assets/images/progress-2.png",
+  "assets/images/progress-3.png",
+  "assets/images/progress-final.png",
+  "assets/images/Asset 15.svg",
+  "assets/images/Asset 50.svg",
+  "assets/images/Asset 40.svg",
+  "assets/images/Asset 39.svg",
+  "assets/images/Asset 47.svg",
+  "assets/images/choose-apply.svg",
+  "assets/images/a-letter.svg",
+  "assets/images/b-letter.svg",
+  "assets/images/c-letter.svg",
+  "assets/images/d-letter.svg",
+  "assets/images/Asset 26.svg",
+  "assets/images/Asset 25.svg",
+  "assets/images/Asset 32.svg",
+  "assets/images/Asset 31.svg",
+  "assets/images/Asset 23.svg",
+  "assets/images/Asset 22.svg",
+  "assets/images/img-1.png",
+  "assets/images/info-2.png",
+  "assets/images/Asset 37.png",
+  "assets/images/left-qr.svg",
+  "assets/images/logo-qr.svg",
+  "assets/images/right-qr.svg",
+  "assets/images/restart-btn.svg",
+  "assets/images/prev-btn.svg",
+  "assets/images/next-btn.svg",
+  "assets/images/home-btn.svg",
+  "assets/images/favicon.ico"
+];
 
 
 

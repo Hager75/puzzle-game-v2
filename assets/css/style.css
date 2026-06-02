@@ -212,12 +212,21 @@ body {
   color: var(--dark-blue);
   font-family: var(--font-bold);
   font-size: clamp(14px, 4dvh, 1.2rem);
+  display: none;
 }
 
 .timer__mins {
   font-size: 2.2rem;
   font-family: var(--font-bold);
   font-size: clamp(20px, 7dvh, 2.2rem);
+  display: none;
+}
+.result{
+  color: #fff;
+  font-family: var(--font-normal);
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 0.5rem 0;
 }
 
 .preview-wrap img {
@@ -367,26 +376,6 @@ body {
 }
 
 
-.qr-list {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  justify-content: center;
-  max-height: 80%;
-  flex: 1;
-}
-
-.qr-list img {
-  width: 100%;
-}
-
-.qr-list .qr-img-wrap {
-  width: 15%;
-  max-width: 300px;
-}
-
-
 .final-page .content {
   flex: 1;
   display: flex;
@@ -450,6 +439,78 @@ body {
   height: 100dvh;
   width: 100%;
   overflow: hidden;
+}
+
+.qr-page {
+  display: none;
+  flex-direction: column;
+  height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.qr-page .qr-container {
+  flex: 1 1 auto;
+  display: flex;
+  min-height: 0;
+  /* CRUCIAL: lets children shrink */
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  flex-direction: column;
+  background: linear-gradient(to left, var(--primary-color), var(--secondary-color));
+}
+
+.qr-content {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 75%;
+  /* height: auto; */
+  background: white;
+  border-radius: 3rem;
+  padding: 5rem 0 2rem;
+}
+
+.qr-list {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+}
+
+
+.qr-item img {
+  max-height: 25dvh;
+  width: 100%;
+}
+
+.qr-logo {
+  padding-top: 1rem;
+}
+
+.qr-logo img {
+  max-height: 8dvh;
+}
+
+.qr-content .ref-list {
+  padding: 0;
+  list-style: none;
+}
+
+.qr-content .ref{
+  padding: 0;
+}
+
+.qr-content .footer {
+  padding: 1rem 3rem !important;
 }
 
 .nav {
@@ -629,7 +690,7 @@ body {
 }
 
 
-.info-page .footer {
+.info-page .footer, .qr-content .footer {
   width: 100%;
   padding: 12px 24px;
   display: flex;
@@ -639,13 +700,13 @@ body {
   background-color: #fff;
 }
 
-.info-page .footer-img-wrap {
+.info-page .footer-img-wrap, .qr-content .footer-img-wrap {
   height: 40px;
   display: flex;
   align-items: center;
 }
 
-.info-page .footer-img-wrap img {
+.info-page .footer-img-wrap img, .qr-content .footer-img-wrap img {
   height: 100%;
   width: auto;
   display: block;
@@ -655,7 +716,7 @@ body {
    RESPONSIVE
    ============================================ */
 
-/* Landscape phones / small laptops â€” keep 3 columns, shrink gaps */
+/* Landscape phones / small laptops Ã¢â‚¬â€ keep 3 columns, shrink gaps */
 @media (max-width: 1024px) and (orientation: landscape) {
   html {
     font-size: 11px !important;
@@ -674,11 +735,11 @@ body {
   }
 
 
-  .info-page .footer {
+  .info-page .footer, .qr-content .footer {
     padding: 8px 16px;
   }
 
-  .info-page .footer-img-wrap {
+  .info-page .footer-img-wrap, .qr-content .footer-img-wrap {
     height: 25px;
   }
 }
@@ -706,7 +767,7 @@ body {
   }
 }
 
-/* Portrait / narrow screens â€” stack columns but still no scroll */
+/* Portrait / narrow screens Ã¢â‚¬â€ stack columns but still no scroll */
 @media (orientation: portrait),
 (max-width: 600px) {
 
@@ -887,8 +948,8 @@ main {
 }
 
 .ref-list li {
-  font-family: var(--font-normal) ;
-  font-size: 0.5rem ;
+  font-family: var(--font-normal);
+  font-size: 0.5rem;
 }
 
 .ref a {
@@ -1276,4 +1337,8 @@ section#game-page .score-top .score-text {
 
 .hidden {
   visibility: hidden;
+}
+
+.font-bold {
+  font-family: var(--font-bold);
 }

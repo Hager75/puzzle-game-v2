@@ -70,25 +70,25 @@ function startCountDown(mins, timerContainer) {
 }
 
 function preloadAssets() {
-  return new Promise((resolve) => {
-    let loaded = 0;
-    const total = ASSETS.length;
+    return new Promise((resolve) => {
+        let loaded = 0;
+        const total = imageUrls.length;
 
-    if (total === 0) resolve();
+        if (total === 0) resolve();
 
-    ASSETS.forEach((src) => {
-      const img = new Image();
-      img.src = src;
+        imageUrls.forEach((src) => {
+            const img = new Image();
+            img.src = src;
 
-      img.onload = img.onerror = () => {
-        loaded++;
+            img.onload = img.onerror = () => {
+                loaded++;
 
-        if (loaded === total) {
-          resolve();
-        }
-      };
+                if (loaded === total) {
+                    resolve();
+                }
+            };
+        });
     });
-  });
 }
 
 function displayInfoPage(isWinner) {
@@ -101,18 +101,52 @@ function displayInfoPage(isWinner) {
 }
 
 function startGame() {
-    // bodyElement.classList.remove("loaded");
-   timerController = startCountDown(mins, timer);
-
+    loginPage.style.display = "none";
+    gamePage.style.display = "flex";
+    gamePage.classList.add("fade-in");
+    currentPage++;
+    //    timerController = startCountDown(mins, timer);
 }
 
 
 const showElement = (element, display = 'flex') => {
-  element.style.display = display;
-  element.classList.add('fade-in');
+    element.style.display = display;
+    element.classList.add('fade-in');
 };
 
 const hideElement = (element) => {
-  element.style.display = 'none';
+    element.style.display = 'none';
 };
 
+function getCorrectAnswersCount(answers, correctAnswers) {
+  let count = 0;
+  Object.keys(correctAnswers).forEach(key => {
+    const correct = correctAnswers[key];
+    const userAnswer = answers[key];
+
+    let isCorrect = false;
+
+    if (Array.isArray(correct)) {
+      isCorrect =
+        Array.isArray(userAnswer) &&
+        correct.length === userAnswer.length &&
+        correct.every(answer => userAnswer.includes(answer));
+    } else {
+      isCorrect =
+        String(userAnswer).trim().toLowerCase() ===
+        String(correct).trim().toLowerCase();
+    }
+
+    if (isCorrect) {
+      count++;
+    }
+  });
+
+  return count;
+}
+
+const displayCorrectQuestionCount = () => {
+    const correctCount = getCorrectAnswersCount(answers, correctAnswers);
+    resultElement.textContent = `You answered ${correctCount} of ${Object.keys(correctAnswers).length} questions correctly`;
+
+}
