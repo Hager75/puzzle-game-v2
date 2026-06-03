@@ -111,7 +111,11 @@ function startGame() {
 
 const showElement = (element, display = 'flex') => {
     element.style.display = display;
+    isTransitioning = true;
     element.classList.add('fade-in');
+    element.addEventListener('animationend', () => {
+        isTransitioning = false;
+    }, { once: true });
 };
 
 const hideElement = (element) => {
@@ -119,34 +123,48 @@ const hideElement = (element) => {
 };
 
 function getCorrectAnswersCount(answers, correctAnswers) {
-  let count = 0;
-  Object.keys(correctAnswers).forEach(key => {
-    const correct = correctAnswers[key];
-    const userAnswer = answers[key];
+    let count = 0;
+    Object.keys(correctAnswers).forEach(key => {
+        const correct = correctAnswers[key];
+        const userAnswer = answers[key];
 
-    let isCorrect = false;
+        let isCorrect = false;
 
-    if (Array.isArray(correct)) {
-      isCorrect =
-        Array.isArray(userAnswer) &&
-        correct.length === userAnswer.length &&
-        correct.every(answer => userAnswer.includes(answer));
-    } else {
-      isCorrect =
-        String(userAnswer).trim().toLowerCase() ===
-        String(correct).trim().toLowerCase();
-    }
+        if (Array.isArray(correct)) {
+            isCorrect =
+                Array.isArray(userAnswer) &&
+                correct.length === userAnswer.length &&
+                correct.every(answer => userAnswer.includes(answer));
+        } else {
+            isCorrect =
+                String(userAnswer).trim().toLowerCase() ===
+                String(correct).trim().toLowerCase();
+        }
 
-    if (isCorrect) {
-      count++;
-    }
-  });
+        if (isCorrect) {
+            count++;
+        }
+    });
 
-  return count;
+    return count;
 }
 
 const displayCorrectQuestionCount = () => {
     const correctCount = getCorrectAnswersCount(answers, correctAnswers);
     resultElement.textContent = `You answered ${correctCount} of ${Object.keys(correctAnswers).length} questions correctly`;
-
 }
+
+
+const handleTransition = async () => {
+    isTransitioning = true;
+    await new Promise(resolve => setTimeout(resolve, 700));
+    isTransitioning = false;
+};
+
+const lockButtons = (questionKey) => {
+    document
+        .querySelectorAll(`.q${questionKey}-buttons`)
+        .forEach(el => {
+            el.style.pointerEvents = 'none';
+        });
+};

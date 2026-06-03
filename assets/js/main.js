@@ -1,29 +1,80 @@
 
 
-const validateQuestion = (questionContainer, questionKey) => {
-  const activeButtons = questionContainer.querySelectorAll('.active');
-
+const handleEmptySelection = (activeButtons, errorEl) => {
   if (!activeButtons.length) {
-    questionContainer.querySelector('.error').style.display = 'block';
+    errorEl.style.display = 'block';
     return false;
   }
-
-  questionContainer.querySelector('.error').style.display = 'none';
-
-  if (questionKey === '2') {
-    // Multiple choice
-    answers[questionKey] = [...activeButtons].map(btn =>
-      btn.textContent.trim()
-    );
-  } else {
-    // Single choice
-    answers[questionKey] = activeButtons[0].textContent.trim();
-  }
-
-
   return true;
 };
 
+const handleMultipleChoice = (questionContainer, activeButtons, questionKey) => {
+  const userAnswer = [...activeButtons].map(btn =>
+    btn.textContent.trim()
+  );
+
+  const correctList = correctAnswers[questionKey];
+
+  answers[questionKey] = userAnswer;
+
+  multipleChoiceButtons.forEach((btn) => {
+    const value = btn.textContent.trim();
+    const isSelected = btn.classList.contains('active');
+    const isCorrect = correctList.includes(value);
+
+    if (isSelected && isCorrect) {
+      btn.classList.add('correct');
+    }
+
+    if (isSelected && !isCorrect) {
+      btn.classList.add('wrong');
+    }
+
+    if (!isSelected && isCorrect) {
+      btn.classList.add('missed');
+    }
+  });
+};
+
+const handleSingleChoice = (activeButtons, questionKey) => {
+  const selected = activeButtons[0];
+  const value = selected.textContent.trim();
+
+  answers[questionKey] = value;
+
+  const isCorrect =
+    correctAnswers[questionKey].trim().toLowerCase() ===
+    value.toLowerCase();
+
+  if (isCorrect) {
+    selected.classList.add('correct');
+  } else {
+    selected.classList.add('wrong');
+  }
+};
+
+
+
+const validateQuestion = async (questionContainer, questionKey) => {
+  const activeButtons = questionContainer.querySelectorAll('.active');
+  const errorEl = questionContainer.querySelector('.error');
+
+  if (!handleEmptySelection(activeButtons, errorEl)) return false;
+
+  errorEl.style.display = 'none';
+
+  if (questionKey === '2') {
+    handleMultipleChoice(questionContainer, activeButtons, questionKey);
+  } else {
+    handleSingleChoice(activeButtons, questionKey);
+  }
+
+  await handleTransition();
+
+  lockButtons(questionKey);
+
+  return true;
+};
 
 firstQuestionAnswersBtns.forEach((btn) => {
   btn.addEventListener('click', () => {
@@ -68,11 +119,11 @@ fourthQuestionAnswersBtns.forEach((btn) => {
 
 
 nextBtn.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    if (!(currentPage > 1 && currentPage < 13)) return;
+  btn.addEventListener('click', async () => {
+    if (!(currentPage > 1 && currentPage < 13) || isTransitioning) return;
     switch (currentPage) {
       case 2:
-        const isValidQ1 = validateQuestion(
+        const isValidQ1 = await validateQuestion(
           firstQuestionContainer,
           '1'
         );
@@ -89,7 +140,7 @@ nextBtn.forEach((btn) => {
         break;
 
       case 4:
-        const isValidQ2 = validateQuestion(
+        const isValidQ2 = await validateQuestion(
           secondQuestionContainer,
           '2'
         );
@@ -119,7 +170,7 @@ nextBtn.forEach((btn) => {
         break;
 
       case 7:
-        const isValidQ3 = validateQuestion(
+        const isValidQ3 = await validateQuestion(
           thirdQuestionContainer,
           '3'
         );
@@ -139,7 +190,7 @@ nextBtn.forEach((btn) => {
 
       case 9:
 
-        const isValidQ4 = validateQuestion(
+        const isValidQ4 = await validateQuestion(
           fourthQuestionContainer,
           '4'
         );
@@ -184,7 +235,7 @@ nextBtn.forEach((btn) => {
 
 prevBtn.forEach((btn) => {
   btn.addEventListener('click', () => {
-    if (!(currentPage > 2 && currentPage <= 13)) return;
+    if (!(currentPage > 2 && currentPage <= 13) || isTransitioning) return;
 
     switch (currentPage) {
       // Returning from page 3 -> page 2
@@ -291,7 +342,6 @@ restartBtn.addEventListener("click", function (e) {
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-
   loginPage.classList.add("fade-out");
 
   setTimeout(() => {

@@ -54,6 +54,7 @@ const correctAnswers = {
   4: 'single dose'
 }
 let currentPage = 1;
+let isTransitioning = false;
 let timerController = null; // not used, use it if there is a timer
 
 const imageUrls = [

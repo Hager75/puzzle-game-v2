@@ -318,6 +318,41 @@ body {
   transform: scale(0.98);
 }
 
+
+.q-btns.correct {
+    background-color: transparent !important;
+    color: #22c55e !important;
+    border: 2px solid #22c55e !important;
+    animation: correctPulse 0.5s ease !important;
+}
+
+.q-btns.wrong {
+    background-color: transparent !important;
+    border: 2px solid #ef4444 !important;
+    color: #ef4444 !important;
+    animation: wrongShake 0.4s ease !important;
+}
+
+.q-btns.missed {
+    background-color: transparent !important;
+    border:2px solid #e3e361 !important;
+    color: #e3e361 !important;
+    animation: correctPulse 0.5s ease !important;
+}
+
+@keyframes correctPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+}
+
+
 .q1__answer--icon,
 .q3__answer--icon,
 .q4__answer--icon {
