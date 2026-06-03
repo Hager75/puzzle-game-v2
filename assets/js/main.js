@@ -16,12 +16,23 @@ const handleMultipleChoice = (questionContainer, activeButtons, questionKey) => 
   const correctList = correctAnswers[questionKey];
 
   answers[questionKey] = userAnswer;
+  const isSingleWrongOnly =
+    userAnswer.length === 1 &&
+    !correctList.includes(userAnswer[0]);
 
   multipleChoiceButtons.forEach((btn) => {
     const value = btn.textContent.trim();
     const isSelected = btn.classList.contains('active');
     const isCorrect = correctList.includes(value);
-
+    if (isSingleWrongOnly) {
+      if (isCorrect) {
+        btn.classList.add('revealed');
+      }
+      if (isSelected && !isCorrect) {
+        btn.classList.add('wrong');
+      }
+      return;
+    }
     if (isSelected && isCorrect) {
       btn.classList.add('correct');
     }
@@ -50,6 +61,14 @@ const handleSingleChoice = (activeButtons, questionKey) => {
     selected.classList.add('correct');
   } else {
     selected.classList.add('wrong');
+    //  highlight correct answer too
+    const allButtons = document.querySelectorAll(`.q${questionKey}-buttons`);
+    allButtons.forEach((btn) => {
+      const btnValue = btn.textContent.trim();
+      if (btnValue.toLowerCase() === correctAnswers[questionKey].trim().toLowerCase()) {
+        btn.classList.add('revealed');
+      }
+    });
   }
 };
 
